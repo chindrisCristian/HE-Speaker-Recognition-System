@@ -64,7 +64,7 @@ class Utils:
             help="Directory to save the model file",
         )
         parser.add_argument(
-            "--npy_path", type=str, default="dataset/", help="Path to .npy files"
+            "--npy_path", type=str, default="dataset/npy/", help="Path to .npy files"
         )
         parser.add_argument(
             "--model",

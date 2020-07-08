@@ -1,0 +1,39 @@
+The ability to save and operate on cloud data provides most entities with services that cost a lot of personal deployment. These services introduce flexibility and reduced hardware needs, but they come with a disadvantage, namely a possible loss of data privacy. This is where the homomorphic cryptography comes in, which is now an area of interest and great novelty. Homomorphic cryptography serves the requirements specified earlier and offers the advantage of data protection.
+The homomorphic cryptography allows operations on encrypted data to be performed while maintaining its confidentiality. The importance of this area is apparent from its applicability and the need to implement it in new computing systems.
+
+In the paper we designed and implemented a speaker recognition system whose security is based on the principles of homomorphic encryption. The application uses a convolutional neural network to classify encrypted spectral images of speakers and, for a small database, achieves an accuracy of over 99.5% for identifying them. We believe that this application represents a ‘State of the Art’ in the field of artificial intelligence by introducing spectral analysis to identify speakers alongside the security provided by homomorphic cryptography while achieving very good results.
+
+In order to understand the steps for designing it we recomend you to read the paper.
+
+Operating system:
+    - Ubuntu 18.04 LTS
+
+Dependencies:
+    - G++ 7.4.x
+    - Clang++ 9.0.x
+    - Python 3.6.x
+    - Cmake 3.14.4
+    -Microsoft SEAL
+    - Intel HE_Transformer
+
+The main folder contains:
+    - dataset/npy/ - contains the database samples used to train and test the server.
+    - Utils.py - a handfull of methods used across the server's sources.
+    - SpectogramGenerator.py - The class which handles the .WAV file and generates its spectograms.
+    - Dataset.py - The class which handles the data for the neural network.
+    - Network.py - The class which handles evrything about the neural network.
+    - Transform.py - This file is used to get the .NPY files from .WAV files.
+    - Train.py - This file is used to compile and generate the model for the neural network.
+    - Server.py - The file which gives access to the server.
+    - Client.py - The file which gives access to the client.
+
+To build the system first you have to run main.sh.
+
+If there are no errors encountered, you can then run the server.
+
+Example of running the server:
+
+python3 Server.py --user=2 --encrypt_server_data=True --model_file=models/speaker_model.pb --encryption_parameters=he_seal_ckks_cconfig_N13_L7.json
+
+For more details run:
+python3 Server.py --help
